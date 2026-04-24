@@ -1,0 +1,91 @@
+{
+  "info": {
+    "_postman_id": "0c3f4121-295b-40ac-be31-a8756327b03c",
+    "name": "Petstore Users Api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47787864",
+    "_collection_link": "https://go.postman.co/collection/47787864-0c3f4121-295b-40ac-be31-a8756327b03c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "create new user",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"User created successfully\", function () {\r",
+              "    let jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.message).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 1,\r\n  \"username\": \"ritabede\",\r\n  \"firstName\": \"Rita\",\r\n  \"lastName\": \"Bede\",\r\n  \"email\": \"ritabede89@gmail.com\",\r\n  \"password\": \"Rita89\",\r\n  \"phone\": \"8103743832\",\r\n  \"userStatus\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get user by username",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user/standard_user",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user",
+            "standard_user"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "logininvaliduser",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
